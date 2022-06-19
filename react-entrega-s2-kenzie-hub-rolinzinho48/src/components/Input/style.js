@@ -7,9 +7,13 @@ export const Entrada = styled.input`
     height:var(--inputHeight);
     border:1px solid #F8F9FA;
     border-radius:5px;
-    padding-left:15px;
+    
     ::placeholder{
         color:var(--grey2);
         margin-left:15px;
+    }
+    :focus{
+        padding-left:10px;
+        transition:all 0.5s;
     }
 `
