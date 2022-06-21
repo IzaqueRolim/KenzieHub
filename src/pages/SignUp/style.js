@@ -39,6 +39,7 @@ export const Content = styled.div`
     justify-content:space-evenly;
     align-items:center;
     div{
+        min-width:90%;
         max-width:90%;
         display:flex;
         flex-direction:column;
@@ -48,10 +49,15 @@ export const Content = styled.div`
             min-width:100%;
             max-width:100%;
         }
+        Select{
+            min-width:100%;
+            max-width:100%;
+        }
     }
     Button{
         max-width:90%;
     }
+   
 
     @media(min-width:500px){
         width:450px;

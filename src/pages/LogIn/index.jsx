@@ -5,6 +5,10 @@ import {Container,Content} from './style'
 import { Link, useHistory} from 'react-router-dom'
 import {useState} from 'react'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function LogIn(){
 
@@ -20,9 +24,21 @@ function LogIn(){
             password: userPassoword
           })
           .then(function (response) {
-            history.push(`/:${response.data.user.name}`,{nome:response.data.user.name});
+            localStorage.setItem("token",response.data.token);
+            history.push(`/:${response.data.user.name}`,{
+                id:response.data.user.id
+            });
           })
           .catch(function (error) {
+            toast.error(`${error.response.data.message}`, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });   
             console.error(error);
           }
         )
@@ -30,6 +46,7 @@ function LogIn(){
 
     return(
             <Container>
+                 <ToastContainer/>
                 <img src={Img} />
                 <Content>
                     <h2>Logar</h2>

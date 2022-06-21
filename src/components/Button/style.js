@@ -7,4 +7,7 @@ width:calc(var(--inputWidth)*1);
 height:var(--inputHeight);
 border-style:none;
 border-radius:5px;
+:hover{
+    cursor:pointer;
+}
 `
